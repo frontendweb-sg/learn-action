@@ -1,0 +1,17 @@
+name: learn gihub actions
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print
+        run: echo "hello world"
+        shell: bash
