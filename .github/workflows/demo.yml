@@ -12,6 +12,13 @@ jobs:
   default:
     runs-on: ubuntu-latest
     steps:
-      - name: print
+      - name: Checkout branch
+        uses: actions/checkout@v2
+      - name: print helo world
         run: echo "hello world"
         shell: bash
+  windows:
+    runs-on: window-latest
+    steps:
+      - name: print dir
+        run: dir
