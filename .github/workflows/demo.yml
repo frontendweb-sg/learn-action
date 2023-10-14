@@ -17,6 +17,10 @@ jobs:
       - name: print helo world
         run: echo "hello world"
         shell: bash
+      - name: create file
+        run: echo "Hello World" > hello.txt
+      - name: show content
+        run: cat hello.txt
   windows:
     runs-on: windows-latest
     needs: Linux
