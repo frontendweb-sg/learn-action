@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  default:
+  Linux:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -22,3 +22,6 @@ jobs:
     steps:
       - name: print dir
         run: dir
+      - name: Hostname
+        run: hostname
+        shell: cmd
