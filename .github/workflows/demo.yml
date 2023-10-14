@@ -19,6 +19,7 @@ jobs:
         shell: bash
   windows:
     runs-on: windows-latest
+    needs: Linux
     steps:
       - name: print dir
         run: dir
