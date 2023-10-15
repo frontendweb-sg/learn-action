@@ -19,9 +19,7 @@ jobs:
           node-version: 16
 
       - name: branch info
-        run: |
-          echo ${{github.repository}}
-          echo ${{toJson(github)}}
+        run: echo ${{github.repository}}
 
   Test:
     runs-on: ubuntu-latest
