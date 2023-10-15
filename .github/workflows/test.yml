@@ -12,30 +12,43 @@ jobs:
       - name: Node seup
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: 16
 
       - name: branch info
         run: |
           echo ${{github.repository}}
           echo ${{toJson(github)}}
+
   Test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: branch info
-        run: |
-          echo ${{github.repository}}
-          echo ${{toJson(github)}}
-
       - name: Node seup
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: 16
 
       - name: Install deps
         run: npm ci
 
       - name: Run test
         run: npm run test
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Node seup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install deps
+        run: npm ci
+
+      - name: build
+        run: npm run build
