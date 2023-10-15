@@ -66,3 +66,11 @@ jobs:
 
       - name: build
         run: npm run build
+
+      - name: Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-file
+          path: |
+            dist
+            package.json
