@@ -21,7 +21,8 @@ jobs:
       - name: branch info
         run: echo ${{github.repository}}
 
-  Test:
+  test:
+    needs: repo-info
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,6 +40,7 @@ jobs:
         run: npm run test
 
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
