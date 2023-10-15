@@ -3,11 +3,31 @@ name: Test environment
 on: workflow_dispatch
 
 jobs:
+  repo-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Node seup
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: branch info
+        run: |
+          echo ${{github.repository}}
+          echo ${{toJson(github)}}
   Test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: branch info
+        run: |
+          echo ${{github.repository}}
+          echo ${{toJson(github)}}
 
       - name: Node seup
         uses: actions/setup-node@v3
