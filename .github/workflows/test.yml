@@ -22,14 +22,7 @@ jobs:
           node-version: 16
 
       - name: branch info
-        run: |
-          echo ${{github.repository}}
-          echo ${{toJSON(github)}}
-          echo ${{toJSON(env)}}
-          echo ${{toJSON(job)}}
-          echo ${{toJSON(vars)}}
-          echo ${{toJSON(steps)}}
-          echo ${{toJSON(secrets)}}
+        run: echo ${{github.repository}}
 
   test:
     needs: repo-info
