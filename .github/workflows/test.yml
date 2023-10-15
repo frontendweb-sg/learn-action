@@ -42,7 +42,7 @@ jobs:
       - name: Run test
         run: npm run test
 
-  deploy:
+  build:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -67,3 +67,14 @@ jobs:
           path: |
             dist
             package.json
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-file
+      - name: deploy
+        run: echo "deploying...."
