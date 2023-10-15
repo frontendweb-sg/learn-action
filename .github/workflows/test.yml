@@ -6,6 +6,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  NODE_SECRET: "ABC"
+
 jobs:
   repo-info:
     runs-on: ubuntu-latest
